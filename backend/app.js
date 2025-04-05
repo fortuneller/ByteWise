@@ -17,9 +17,11 @@ app.use(express.json()); // ✅ enables req.body
 // Routes
 const authRoutes = require('./routes/authRoutes');
 const lessonRoutes = require('./routes/lessonRoutes');
+const folderRoutes = require('./routes/folderRoutes');
 
 app.use('/api/auth', authRoutes);
-app.use('/api/lessons', lessonRoutes); // ✅ AFTER json middleware
+app.use('/api/lessons', lessonRoutes);
+app.use('/api/folders', folderRoutes); // ✅ only one instance here
 
 // Root test route
 app.get('/', (req, res) => res.send('ByteWise API Running'));
