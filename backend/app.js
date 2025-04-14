@@ -11,7 +11,12 @@ connectDB();
 const app = express();
 
 // Middleware (must come BEFORE your routes)
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:3000", "http://localhost:3001", "https://bytewisenew.vercel.app"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+}));
 app.use(express.json()); // ✅ enables req.body
 
 // Routes

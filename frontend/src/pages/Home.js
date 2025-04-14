@@ -19,7 +19,7 @@ export default function Home() {
 
     const fetchLessons = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/lessons", {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/lessons`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -38,7 +38,7 @@ export default function Home() {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/lessons",
+        `${process.env.REACT_APP_API_URL}/api/lessons`,
         { title, content, videoLink },
         {
           headers: { Authorization: `Bearer ${token}` },

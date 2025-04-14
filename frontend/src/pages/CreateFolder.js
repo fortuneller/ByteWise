@@ -13,7 +13,7 @@ const CreateFolder = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("http://localhost:3000/api/folders", {
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/api/folders`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -16,13 +16,13 @@ export default function Register() {
 
     try {
       // 1. Register the user
-      await axios.post("http://localhost:3000/api/auth/register", {
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/register`, {
         email,
         password,
       });
 
       // 2. Immediately login after successful register
-      const res = await axios.post("http://localhost:3000/api/auth/login", {
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, {
         email,
         password,
       });

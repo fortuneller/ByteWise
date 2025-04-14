@@ -16,7 +16,7 @@ export default function CreateLesson() {
   useEffect(() => {
     const fetchFolders = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/folders/mine", {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/folders/mine`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
@@ -31,7 +31,7 @@ export default function CreateLesson() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:3000/api/lessons", {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/lessons`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

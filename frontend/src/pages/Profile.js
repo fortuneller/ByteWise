@@ -8,13 +8,13 @@ const Profile = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const folderRes = await fetch("http://localhost:3000/api/folders/mine", {
+      const folderRes = await fetch(`${process.env.REACT_APP_API_URL}/api/folders/mine`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const foldersData = await folderRes.json();
       setFolders(foldersData);
 
-      const lessonRes = await fetch("http://localhost:3000/api/lessons", {
+      const lessonRes = await fetch(`${process.env.REACT_APP_API_URL}/api/lessons`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const lessonsData = await lessonRes.json();
